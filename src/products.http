@@ -1,0 +1,29 @@
+get http://localhost:3000/products
+
+### single product
+get http://localhost:3000/products/65351b2f3a766e9ccd56a92f
+
+
+### añadir product
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "title": "product 2",
+  "image": "https://www.crucial.mx/content/dam/crucial/articles/for-gamers/how-to-build-an-epic-gaming-pc/computer-motherboard.jpg.transform/large-jpg/img.jpg",
+  "description": "some product hardware 2",
+  "price": 1000,
+  "category": "motherboard"
+}
+
+
+### detele a product
+DELETE http://localhost:3000/products/65351ec455698159d2afca41
+
+###
+PUT http://localhost:3000/products/65352141811f79eaa6f7dd88
+Content-Type: application/json
+
+{
+  "title": "product 2"
+}
