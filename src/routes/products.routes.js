@@ -1,7 +1,8 @@
+'use strict'
 import { createProduct, deleteProduct, getProduct, getProducts, updateProduct } from '../controllers/product.controller.js'
-import { validateDucplicate } from '../middlewares/validateDuplicated.js'
+import { validateDuplicate } from '../hooks/validateDuplicated.js'
 
-export const productsRoutes = [
+const productsRoutes = [
   {
     url: '/products',
     method: 'GET',
@@ -25,7 +26,14 @@ export const productsRoutes = [
   {
     url: '/products/:id',
     method: 'PUT',
-    preHandler: validateDucplicate,
+    preHandler: validateDuplicate,
     handler: updateProduct,
   },
 ]
+
+export function productRoutes(fastify, options, done) {
+  productsRoutes.forEach((route) => {
+    fastify.route(route)
+  })
+  done()
+}
