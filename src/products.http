@@ -18,12 +18,12 @@ Content-Type: application/json
 
 
 ### detele a product
-DELETE http://localhost:3000/products/65351ec455698159d2afca41
+DELETE http://localhost:3000/products/65352141811f79eaa6f7dd88
 
 ###
-PUT http://localhost:3000/products/65352141811f79eaa6f7dd88
+PUT http://localhost:3000/products/65381522e0d41d8080e94c2f
 Content-Type: application/json
 
 {
-  "title": "product 2"
+  "title": "holaaaaaaaaaaaaa"
 }
