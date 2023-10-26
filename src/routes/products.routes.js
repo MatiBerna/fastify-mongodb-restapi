@@ -1,4 +1,8 @@
 'use strict'
+/**
+ * @param {FastifyInstance} fastify  Encapsulated Fastify Instance
+ *@param {Object} options
+ */
 import { createProduct, deleteProduct, getProduct, getProducts, updateProduct } from '../controllers/product.controller.js'
 import { validateDuplicate } from '../hooks/validateDuplicated.js'
 
@@ -26,14 +30,20 @@ const productsRoutes = [
   {
     url: '/products/:id',
     method: 'PUT',
-    preHandler: validateDuplicate,
     handler: updateProduct,
   },
 ]
 
-export function productRoutes(fastify, options, done) {
-  productsRoutes.forEach((route) => {
-    fastify.route(route)
+export async function productRoutes(fastify, options, done) {
+  fastify.register(async (fastify, options, done) => {
+    fastify.decorate('validateDuplicated', validateDuplicate)
+
+    fastify.addHook('preHandler', (request, reply, done) => {
+      fastify.validateDuplicated(request, reply, done)
+    })
+    productsRoutes.forEach((route) => {
+      fastify.route(route)
+    })
+    done()
   })
-  done()
 }

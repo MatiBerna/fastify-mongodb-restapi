@@ -9,7 +9,7 @@ POST http://localhost:3000/products
 Content-Type: application/json
 
 {
-  "title": "product 2",
+  "title": "product 3",
   "image": "https://www.crucial.mx/content/dam/crucial/articles/for-gamers/how-to-build-an-epic-gaming-pc/computer-motherboard.jpg.transform/large-jpg/img.jpg",
   "description": "some product hardware 2",
   "price": 1000,
@@ -18,12 +18,12 @@ Content-Type: application/json
 
 
 ### detele a product
-DELETE http://localhost:3000/products/65352141811f79eaa6f7dd88
+DELETE http://localhost:3000/products/653aa371ed9f5cd86c9e3024
 
 ###
-PUT http://localhost:3000/products/65381522e0d41d8080e94c2f
+PUT http://localhost:3000/products/653aa5b3c132dce648f93f5c
 Content-Type: application/json
 
 {
-  "title": "holaaaaaaaaaaaaa"
+  "title": "producto 3 verdadero"
 }

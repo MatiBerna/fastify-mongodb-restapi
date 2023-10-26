@@ -15,7 +15,7 @@ fastify.register(routes)
 // productsRoutes.forEach((route) => {
 //   fastify.route(route)
 // })
-//plugin que elimina de este archivo el codigo comentario, el forEach pasa a estar en products.routes.js
+//plugin que elimina de este archivo el codigo comentado, el forEach pasa a estar en products.routes.js
 fastify.register(productRoutes)
 
 //aquí declararé u decorador con la función validateDuplicate del archivo hooks/validateDuplicate.js

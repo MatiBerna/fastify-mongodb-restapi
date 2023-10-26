@@ -31,12 +31,12 @@ export const updateProduct = async (request, reply) => {
   try {
     const product = await Product.findByIdAndUpdate(request.params.id, request.body, { new: true })
 
-    if (product === undefined) {
+    if (!product) {
       return reply.code(404).send({ message: 'product not found' })
     }
 
     return reply.code(200).send(product)
   } catch (err) {
-    reply.code(500).send(err)
+    return reply.code(500).send(err)
   }
 }
