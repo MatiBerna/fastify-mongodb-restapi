@@ -11,18 +11,9 @@ const fastify = Fastify({
 
 //            RUTAS
 fastify.register(routes)
-//array que recorre el arreglo de rutas almacenado en products.route, crea todas las rutas de la app
-// productsRoutes.forEach((route) => {
-//   fastify.route(route)
-// })
-//plugin que elimina de este archivo el codigo comentado, el forEach pasa a estar en products.routes.js
-fastify.register(productRoutes)
 
-//aquí declararé u decorador con la función validateDuplicate del archivo hooks/validateDuplicate.js
-//esto me permitirá utilizarlo en toda la API sin tener la necesidad de estar importandolo en cada archivo por separado
-//solo necesitaré importarlo en este archivo
-//fastify.decorate('validateDuplicate', validateDuplicate)
-//                nombre a llamar     nombre de la función (o función anonima)
+//encapsulado de código, lo que se modifique dentro de productRoutes NO se verá afectado en el index
+fastify.register(productRoutes)
 
 const start = async () => {
   try {
